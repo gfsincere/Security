@@ -1,5 +1,5 @@
 #! /bin/bash
-#This is the first part of the security script
+#This is the first part of the security script for CentOS 5 & 6
 read -r -p "Would you like to install denyhosts [Y/N] " response
 if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]
 then
