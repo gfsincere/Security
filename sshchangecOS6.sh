@@ -2,7 +2,7 @@
 # This script changes the ssh port for logins on CentOS 5 and 6
 if [[ $EUID -ne 0 ]]; then
 echo "This script must be run as root"
-   exit 1
+   exit 2
 read -r -p "Would you like to change the ssh port? [Y/N] " response
 if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]
 then	
@@ -18,7 +18,7 @@ then
 	echo "--------------------------------------------------------------------"
    else
 	echo "Port chosen is incorrect."
-	exit 0
+	exit 1
    fi
 else 
    sshPort=$(grep "Port" /etc/ssh/sshd_config) | head -n 1
@@ -29,7 +29,7 @@ else
    echo "Written by Sincere the Minotaur."
    echo ""
    echo "---------------------------------------------------------------------"
-   exit 0
+   exit 1
 fi
 exit 0
 
