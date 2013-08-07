@@ -4,7 +4,8 @@ if [[ $EUID -ne 0 ]]; then
 echo "This script must be run as root"
    exit 1
 read -r -p "Would you like to change the ssh port? [Y/N] " response
-	if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]
+	then	
 		read -r -p "What would you like to change the port to? (Chose between 1024-65535)" sshportconfig
 		echo "Port $sshportconfig" >> /etc/ssh/sshd_config
 		echo "--------------------------------------------------------------------"
