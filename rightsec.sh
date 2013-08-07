@@ -152,3 +152,77 @@ else
 	exit 0
 fi
 sleep 5
+#This next section is dedicated to securing SSH
+#Changing the SSH port
+read -r -p "Would you like to change the ssh port? [Y/N] " sshresp
+if [[ $sshresp =~ ^([yY][eE][sS]|[yY])$ ]]
+then	
+   read -p "What would you like to change the port to? (Chose between 1024-65535) " sshportconfig
+   if (( ("$sshportconfig" > 1024) && ("$sshportconfig" < 65535) )); then
+	sed -ie 's/Port.*[0-19]$/Port '$sshportconfig'/gI' /etc/ssh/sshd_config
+	echo "--------------------------------------------------------------------"
+	echo ""
+	echo ""
+	echo "SSH port has been changed to: $sshportconfig. Written by Sincere the Minotaur."
+	echo ""
+	echo ""
+	echo "--------------------------------------------------------------------"
+   else
+	echo "Port chosen is incorrect."
+	exit 0
+   fi
+else 
+   sshPort=$(grep "Port" /etc/ssh/sshd_config) | head -n 1
+   echo "--------------------------------------------------------------------"
+   echo ""
+   echo ""
+   echo "SSH is still: $sshPort"
+   echo "Written by Sincere the Minotaur."
+   echo ""
+   echo "---------------------------------------------------------------------"
+   exit 0
+fi
+sleep 5
+# Disable root login
+# Creating a user to have su access and group granted su access
+#
+#
+#
+#saving maldet for last as it might be a new server or if its a older server with security issues
+echo "---------------------------------"
+echo ""
+echo "Installing screen and maldet to server"
+echo ""
+echo ""
+echo "---------------------------------"
+#grabbing screen
+yum install screen -y
+#grabbing maldet
+wget http://www.rfxn.com/downloads/maldetect-current.tar.gz
+tar -xzf maldetect-current.tar.gz
+cd maldetect-1.4.2
+sh install.sh
+#Running the maldet automagically
+read -r -p "Would you like to run the scan in screen now? [Y/N] " malscresp
+if [[ $malscresp =~ ^([yY][eE][sS]|[yY])$ ]]
+then
+	screen -d -m -S "maldet" maldet -a /
+	echo "--------------------------------------------------------------------"
+	echo ""
+	echo ""
+	echo "Maldet scan running successfully. Use screen -r maldet to check progress."
+	echo "++++++++++++++Written by Sincere the Minotaur+++++++++++++++++"
+	echo ""
+	echo ""
+	echo "---------------------------------------------------------------------"
+else
+	echo "--------------------------------------------------------------------"
+	echo ""
+	echo ""
+	echo "Maldet and screen successfully installed. Written by Sincere the Minotaur."
+	echo ""
+	echo ""
+	echo "---------------------------------------------------------------------"
+	exit 0
+fi
+sleep 5
