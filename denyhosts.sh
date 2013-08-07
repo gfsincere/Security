@@ -1,5 +1,8 @@
 #! /bin/bash
 #This is the first part of the security script for CentOS 5 & 6
+if [[ $EUID -ne 0 ]]; then
+echo "This script must be run as root"
+   exit 1
 read -r -p "Would you like to install denyhosts [Y/N] " response
 if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]
 then
