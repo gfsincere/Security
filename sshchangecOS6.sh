@@ -15,7 +15,6 @@ then
 	echo ""
 	echo ""
 	echo "--------------------------------------------------------------------"
-	exit 0
 else 
 	sshPort=$(grep "Port" /etc/ssh/sshd_config) | head -n 1
 	echo "--------------------------------------------------------------------"
@@ -25,5 +24,5 @@ else
 	echo "Written by Sincere the Minotaur."
 	echo ""
 	echo "---------------------------------------------------------------------"
-	exit 0
+exit 0
 fi
