@@ -24,5 +24,5 @@ else
 	echo "Written by Sincere the Minotaur."
 	echo ""
 	echo "---------------------------------------------------------------------"
-exit 0
+	exit 0
 fi
