@@ -8,7 +8,7 @@ if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]
 then	
    read -p "What would you like to change the port to? (Chose between 1024-65535) " sshportconfig
    if (( ("$sshportconfig" > 1024) && ("$sshportconfig" < 65535) )); then
-	echo "Port $sshportconfig" >> /etc/ssh/sshd_config
+	sed -ie 's/Port.*[0-19]$/Port '$sshportconfig'/gI' /etc/ssh/sshd_config
 	echo "--------------------------------------------------------------------"
 	echo ""
 	echo ""
