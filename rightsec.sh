@@ -183,9 +183,11 @@ else
    exit 0
 fi
 sleep 5
+# Future addons: 
 # Disable root login
 # Creating a user to have su access and group granted su access
-#
+# Installing OSSEC agent
+# Adding Artillery for port scanning lockdown
 #
 #
 #saving maldet for last as it might be a new server or if its a older server with security issues
