@@ -115,7 +115,7 @@ else
         /etc/init.d/csf status && /etc/init.d/lfd status
 fi
 
-sleep 5
+sleep 20
 read -r -p "Would you like to install denyhosts [Y/N] " response
 if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]
 then
@@ -151,7 +151,7 @@ else
 	echo "---------------------------------------------------------------------"
 	exit 0
 fi
-sleep 5
+sleep 20
 #This next section is dedicated to securing SSH
 #Changing the SSH port
 read -r -p "Would you like to change the ssh port? [Y/N] " sshresp
@@ -182,7 +182,7 @@ else
    echo "---------------------------------------------------------------------"
    exit 0
 fi
-sleep 5
+sleep 20
 # Future addons: 
 # Disable root login
 # Creating a user to have su access and group granted su access
