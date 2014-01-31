@@ -17,17 +17,17 @@ PHPCONFIG=/etc/php.ini
 echo "Starting search from $SEARCHY..."
 echo "Starting with .php files..."
 find $SEARCHY -iname '*.php'  -type f -print0  | xargs -0 grep r57 | uniq -c >> $SEA_LOGS
-find $SEARCHY -iname '*.php'  -type f -print0  | xargs -0 grep r99 | uniq -c >> $SEA_LOGS
+find $SEARCHY -iname '*.php'  -type f -print0  | xargs -0 grep c99 | uniq -c >> $SEA_LOGS
 find $SEARCHY -iname '*.php' -exec grep -Hi "base64_decode" {} \;  >> $SEA_LOGS
 
 echo "Next are .txt files..."
 find $SEARCHY  -iname '*.txt'  -type f -print0  | xargs -0 grep r57 | uniq -c >> $SEA_LOGS
-find $SEARCHY  -iname '*.txt'  -type f -print0  | xargs -0 grep r99 | uniq -c >> $SEA_LOGS
+find $SEARCHY  -iname '*.txt'  -type f -print0  | xargs -0 grep c99 | uniq -c >> $SEA_LOGS
 find $SEARCHY -iname '*.txt' -exec grep -Hi "base64_decode" {} \;  >> $SEA_LOGS
 
 echo "Now searching .gif files..."
 find $SEARCHY -iname '*.gif'  -type f -print0  | xargs -0 grep r57 | uniq -c >> $SEA_LOGS
-find $SEARCHY -iname '*.gif'  -type f -print0  | xargs -0 grep r99 | uniq -c >> $SEA_LOGS
+find $SEARCHY -iname '*.gif'  -type f -print0  | xargs -0 grep c99 | uniq -c >> $SEA_LOGS
 find $SEARCHY -iname '*.php' -exec grep -Hi "base64_decode" {} \;  >> $SEA_LOGS
 
 echo "Complete."
