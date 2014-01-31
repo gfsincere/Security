@@ -28,7 +28,7 @@ find $SEARCHY -iname '*.txt' -exec grep -Hi "base64_decode" {} \;  >> $SEA_LOGS
 echo "Now searching .gif files..."
 find $SEARCHY -iname '*.gif'  -type f -print0  | xargs -0 grep r57 | uniq -c >> $SEA_LOGS
 find $SEARCHY -iname '*.gif'  -type f -print0  | xargs -0 grep c99 | uniq -c >> $SEA_LOGS
-find $SEARCHY -iname '*.php' -exec grep -Hi "base64_decode" {} \;  >> $SEA_LOGS
+find $SEARCHY -iname '*.gif' -exec grep -Hi "base64_decode" {} \;  >> $SEA_LOGS
 
 echo "Complete."
 sleep 5
