@@ -46,4 +46,3 @@ if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]] ; then
 	 echo "disable_functions = show_source, system, shell_exec, passthru, exec, phpinfo, popen, proc_open" >> $PHPCONFIG
 fi
 exit 0
-
